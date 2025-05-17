@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Back Market - Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f6fa;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      justify-content: center;
+    }
+    .left, .right {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin: 10px;
+    }
+    .left {
+      flex: 2;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .right {
+      flex: 1;
+      min-width: 250px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .payment-method {
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #000;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .summary {
+      font-size: 14px;
+    }
+    .summary div {
+      margin: 5px 0;
+    }
+    .highlight {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .perks {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #555;
+    }
+    label {
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Columna Izquierda -->
+    <div class="left">
+      <h2>Método de pago</h2>
+      <form>
+        <div class="payment-method">
+          <label><input type="radio" name="payment" checked /> Tarjeta de crédito o débito</label><br/>
+          <input type="text" placeholder="Número de tarjeta" />
+          <input type="text" placeholder="Fecha de expiración (MM/AA)" />
+          <input type="text" placeholder="CVV" />
+          <input type="text" placeholder="Nombre del titular" />
+        </div>
+
+        <div class="payment-method">
+          <label><input type="radio" name="payment" /> PayPal (paga ahora o en cuotas)</label><br/>
+          <label><input type="radio" name="payment" /> Pagar con PSE (Colombia)</label>
+        </div>
+
+        <button class="btn" type="submit">Pagar</button>
+      </form>
+
+      <div style="margin-top: 30px;">
+        <label>¿Tienes un código promocional?</label><br/>
+        <input type="text" placeholder="Código promocional" />
+        <button class="btn" style="margin-top:10px;">Aplicar código</button>
+      </div>
+
+      <div class="perks">
+        <p><strong>Beneficios incluidos:</strong></p>
+        <ul>
+          <li>✔ Garantía de 1 año</li>
+          <li>✔ Devoluciones gratis por 30 días</li>
+          <li>✔ Envío estándar gratuito</li>
+          <li>✔ Atención al cliente amigable</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Columna Derecha -->
+    <div class="right">
+      <h2>Resumen del pedido</h2>
+      <div class="summary">
+        <div>MacBook Air (2022) - 8GB/256GB: <strong>$645.00</strong></div>
+        <div>Funda Back Market: <strong>$29.99</strong></div>
+        <div>Envío: <strong>Gratis</strong></div>
+        <div>Tarifa de garantía: <strong>$7.99</strong></div>
+        <div>Impuestos: <strong>$23.85</strong></div>
+        <div class="highlight">Total: $705.83</div>
+      </div>
+
+      <div class="summary" style="margin-top: 30px;">
+        <p><strong>Envío a:</strong><br/> Esteban Ramirez<br/> 172 College View<br/> O'Fallon, IL 62269</p>
+        <p><strong>Facturar a:</strong><br/> Esteban Ramirez<br/> 172 College View<br/> O'Fallon, IL 62269</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

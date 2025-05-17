@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Back Market - Shipping</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      gap: 30px;
+    }
+    .left {
+      flex: 3;
+    }
+    .right {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edit-btn {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .delivery-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #fff;
+    }
+    .delivery-option.selected {
+      border-color: black;
+    }
+    .delivery-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .delivery-date {
+      color: green;
+      font-weight: bold;
+    }
+    button.next-btn {
+      background: black;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .perks {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .perk-item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+    .order-summary h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .summary-total {
+      font-weight: bold;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .payment-icons img {
+      height: 20px;
+      margin-right: 5px;
+    }
+    .product-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .product-line img {
+      height: 40px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="card">
+        <div class="card-header">
+          <h2>Confirm your shipping address</h2>
+          <button class="edit-btn">Edit shipping address</button>
+        </div>
+        <p>Esteban Ramirez<br>172 College View<br>O'Fallon, IL 62269<br>United States<br>(618) 622-8575</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Confirm your billing address</h2>
+          <button class="edit-btn">Edit billing address</button>
+        </div>
+        <p>Esteban Ramirez<br>172 College View<br>O'Fallon, IL 62269<br>United States</p>
+      </div>
+
+      <div class="card">
+        <h2>Select delivery method</h2>
+        <div class="delivery-option selected">
+          <div class="delivery-info">
+            <strong>MacBook Air (2022)</strong>
+            <span class="delivery-date">Get it Apr 15 - Apr 17</span>
+            <span>Standard shipping</span>
+          </div>
+          <span>Free</span>
+        </div>
+
+        <div class="delivery-option">
+          <div class="delivery-info">
+            <strong>Back Market Sleeve</strong>
+            <span class="delivery-date">Get it Apr 18 - Apr 21</span>
+            <span>Standard shipping</span>
+          </div>
+          <span>Free</span>
+        </div>
+        <button class="next-btn">Next</button>
+      </div>
+
+      <div class="perks">
+        <div class="perk-item">✅ 1-year warranty</div>
+        <div class="perk-item">🔄 Free 30-day returns</div>
+        <div class="perk-item">🚚 Free standard shipping</div>
+        <div class="perk-item">💬 Friendly customer service</div>
+      </div>
+    </div>
+
+    <div class="right order-summary">
+      <h3>Your order</h3>
+      <div class="product-line">
+        <span>MacBook Air (2022)</span>
+        <span>$645.00</span>
+      </div>
+      <div class="summary-item">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <div class="product-line">
+        <span>Back Market Sleeve</span>
+        <span>$29.99</span>
+      </div>
+      <div class="summary-item">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span>$644.99</span>
+      </div>
+      <div class="summary-item">
+        <span>Quality Assurance Fee</span>
+        <span>$29.99</span>
+      </div>
+      <div class="summary-item">
+        <span>Estimated taxes</span>
+        <span>$30.85</span>
+      </div>
+      <div class="summary-item summary-total">
+        <span>Total</span>
+        <span>$705.83</span>
+      </div>
+      <p style="font-size: 12px; margin-top: 10px;">Satisfaction guaranteed or your money back within 30 days. By confirming this order you accept our <a href="#">Terms of Service</a> and our <a href="#">Data Protection Policy</a>.</p>
+      <div class="payment-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Amex_logo.svg" alt="Amex" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/PayPal.svg" alt="PayPal" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

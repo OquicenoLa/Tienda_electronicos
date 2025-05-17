@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecno - Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold">Tecno</h1>
+      <nav>
+        <ul class="flex gap-4">
+
+          <li><a href="#" class="hover:underline">Catálogo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="bg-blue-700 text-white text-center py-12">
+    <h2 class="text-3xl font-bold mb-2">¡Bienvenido a Tecno!</h2>
+    <p class="text-lg">Descubre las mejores ofertas en tecnología</p>
+  </section>
+  
+  <section class="py-10 container mx-auto px-4">
+    <h3 class="text-2xl font-semibold mb-6">Productos destacados</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      {% for cat in producto %}
+      <div class="bg-white rounded-xl shadow p-4">
+        <h4 class="text-lg font-bold">{{ cat.id }}</h4>
+        <h4 class="text-lg font-bold">{{ cat.nombrep }}</h4>
+        <p class="text-sm text-gray-600">{{ cat.descripcion }}</p>
+  
+        <div class="mt-4">
+          <p class="text-sm font-semibold text-gray-700 mb-1">Especificaciones técnicas:</p>
+          <ul class="list-disc list-inside text-sm text-gray-600">
+            <li><strong>{{ especificación.clave }}:</strong> {{ especificación.valor }}</li>
+          </ul>
+        </div>
+  
+        <div class="mt-4">
+          <p class="text-sm font-semibold text-gray-700 mb-1">Marcas disponibles:</p>
+          <ul class="list-disc list-inside text-sm text-gray-600">
+            {% for m in marca %}
+              <li><strong>{{ m.nombre }}:</strong> {{ m.pais_origen }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Comprar</button>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+ 
+
+
+  <footer class="bg-gray-800 text-white py-6 mt-10">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Tecno. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- {% block catalogo %} -->
+  <!-- {% endblock %} -->
+
+</body>
+</html>

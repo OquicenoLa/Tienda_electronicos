@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Summary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+    <h2 class="text-lg font-semibold mb-4">Summary</h2>
+
+    <!-- Product 1 -->
+    <div class="flex items-start gap-4 mb-4">
+      <img src="https://via.placeholder.com/60" alt="MacBook" class="w-16 h-16 object-cover rounded" />
+      <div>
+        <p class="font-medium">MacBook Air (2022) 13-inch</p>
+        <p class="text-sm text-gray-600">Apple M2 8-core - 8GB RAM - SSD 256GB</p>
+        <p class="text-sm text-gray-500">Shipping <span class="font-medium text-green-600">Free</span></p>
+      </div>
+      <p class="ml-auto font-semibold">$615.00</p>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="flex items-start gap-4 mb-4">
+      <img src="https://via.placeholder.com/60" alt="Sleeve" class="w-16 h-16 object-cover rounded" />
+      <div>
+        <p class="font-medium">Back Market Sleeve 12/13/14-inch</p>
+        <p class="text-sm text-gray-600">Soft Polyester Fleece / 100% Recycled Nylon</p>
+        <p class="text-sm text-gray-500">Shipping <span class="font-medium text-green-600">Free</span></p>
+      </div>
+      <p class="ml-auto font-semibold">$29.99</p>
+    </div>
+
+    <!-- Totals -->
+    <div class="border-t pt-4 text-sm text-gray-700">
+      <div class="flex justify-between mb-2">
+        <span>Subtotal</span>
+        <span>$644.99</span>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span><a href="#" class="text-blue-600 underline">Quality Assurance Fee</a></span>
+        <span>$6.99</span>
+      </div>
+      <div class="flex justify-between mb-4">
+        <span>Estimated taxes</span>
+        <span>$52.16</span>
+      </div>
+      <div class="flex justify-between font-bold text-lg">
+        <span>Total</span>
+        <span>$704.14</span>
+      </div>
+    </div>
+
+    <!-- Checkout Button -->
+    <button class="mt-6 w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition">Checkout</button>
+
+    <!-- Footer -->
+    <p class="text-xs text-center text-gray-500 mt-4">
+      By confirming this order you accept our 
+      <a href="#" class="underline">Terms of Service</a> and 
+      <a href="#" class="underline">Data Protection Policy</a>.
+    </p>
+
+    <!-- Payment methods -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mt-4">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" class="w-10" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" class="w-10" alt="MasterCard">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/PayPal.svg" class="w-10" alt="PayPal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Apple_Pay_logo.svg" class="w-10" alt="Apple Pay">
+      <!-- Agrega más logos si deseas -->
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#" class="text-blue-600 text-sm underline">Pay over time</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

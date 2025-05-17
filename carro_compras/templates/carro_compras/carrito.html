@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito</title>
+</head>
+<body>
+    <h1>Tu Carrito</h1>
+    <div>
+        {% for item in items %}
+        <div>
+            <h3>{{ item.producto.nombre }}</h3>
+            <p>Cantidad: {{ item.cantidad }}</p>
+            <p>Subtotal: ${{ item.producto.precio|floatformat:2 }}</p>
+            <a href="{% url 'editar_item' item.id %}">Editar</a>
+            <a href="{% url 'eliminar_item' item.id %}">Eliminar</a>
+        </div>
+        {% endfor %}
+    </div>
+    <h3>Total: ${{ total|floatformat:2 }}</h3>
+    <form method="post" action="{% url 'aplicar_cupon' %}">
+        <input type="text" name="codigo" placeholder="Código de cupón">
+        <button type="submit">Aplicar</button>
+    </form>
+    <a href="{% url 'checkout' %}">Proceder al pago</a>
+    <a href="{% url 'lista_productos' %}">Seguir comprando</a>
+</body>
+</html>

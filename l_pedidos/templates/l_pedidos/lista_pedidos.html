@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" href="{% static 'css/sb-admin-2.min.css' %}">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-primary mb-4">Lista de Pedidos</h2>
+
+    <a href="{% url 'crear_pedido' %}" class="btn btn-success mb-3">+ Nuevo Pedido</a>
+
+    <div class="card shadow">
+        <div class="card-body">
+            {% if pedidos %}
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedido in pedidos %}
+                    <tr>
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.cliente.nombre }}</td>
+                        <td>{{ pedido.fecha_pedido|date:"d/m/Y H:i" }}</td>
+                        <td>{{ pedido.estado }}</td>
+                        <td>
+                            <a href="{% url 'pedido_detalle' pedido.id %}" class="btn btn-sm btn-primary">Ver</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>No hay pedidos registrados.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
