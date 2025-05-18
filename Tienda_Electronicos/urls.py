@@ -21,6 +21,7 @@ from pagos import views as pagos_views
 from l_pedidos import views as pedidos_views
 from zcategoria import views as zcagetoria_views
 from carro_compras import views as carro_compras_views
+from home import views as home_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,6 @@ urlpatterns = [
     path('pedidos/', include('l_pedidos.urls')),  # Rutas de la app 'l_pedidos'
     path('pagos/', include('pagos.urls')),  # Rutas de la app 'pagos'
     path('catalogo/', include('zcategoria.urls')),  # Rutas de la app 'pagos'
-    path('', pedidos_views.home),  # Vista de la página principal (ajustar si es otra vista)
+    path('', home_views.home),  # Vista de la página principal (ajustar si es otra vista)
     
 ]
