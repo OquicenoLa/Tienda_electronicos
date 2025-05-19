@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Shipping Form - TecnoShop</title>
+    <link rel="stylesheet" href="{% static 'pagos/css/styles-MSI.css' %}">
+    <link rel="stylesheet" href="{% static 'pagos/css/normalize.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Dirección de envío</h2>
+    <p>Por favor, completa la información de envío para continuar con tu compra.</p>
+    <form method="post" action="{% url 'shipping_view' %}">
+      {% csrf_token %}
+      {% if form.errors %}
+        <div style="color:red;">{{ form.errors }}</div>
+      {% endif %}
+      <div class="flex">
+        <div>
+          <label>Primer nombre</label>
+          <input type="text" name="name" placeholder="Primer nombre" required>
+        </div>
+        <div>
+          <label>Apellido</label>
+          <input type="text" name="last_name" placeholder="Apellido" required>
+        </div>
+      </div>
+      <input type="text" name="address" placeholder="Dirección" required>
+      <input type="text" name="complements" placeholder="Apt, casa o datos adicionales. (opcional)">
+      <div class="flex">
+        <input type="text" name="zip_code" placeholder="Código postal" required>
+        <input type="text" name="city" placeholder="Ciudad" required>
+      </div>
+      <select id="departamentos" name="departamentos" required>
+        <option value="">Seleccione un departamento</option>
+        <option value="Amazonas">Amazonas</option>
+        <option value="Antioquia">Antioquia</option>
+        <option value="Arauca">Arauca</option>
+        <option value="Atlántico">Atlántico</option>
+        <option value="Atlántico Norte">Atlántico Norte</option>
+        <option value="Bolívar">Bolívar</option>
+        <option value="Boyacá">Boyacá</option>
+        <option value="Caldas">Caldas</option>
+        <option value="Caquetá">Caquetá</option>
+        <option value="Cariaco">Cariaco</option>
+        <option value="Cauca">Cauca</option>
+        <option value="Casanare">Casanare</option>
+        <option value="Cesar">Cesar</option>
+        <option value="Chocó">Chocó</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Guajira">Guajira</option>
+        <option value="Guainía">Guainía</option>
+        <option value="Huila">Huila</option>
+        <option value="Magdalena">Magdalena</option>
+        <option value="Meta">Meta</option>
+        <option value="Nariño">Nariño</option>
+        <option value="Norte de Santander">Norte de Santander</option>
+        <option value="Putumayo">Putumayo</option>
+        <option value="Quindío">Quindío</option>
+        <option value="Risaralda">Risaralda</option>
+        <option value="Santander">Santander</option>
+        <option value="Sucre">Sucre</option>
+        <option value="Tolima">Tolima</option>
+        <option value="Valle del Cauca">Valle del Cauca</option>
+        <option value="Vichada">Vichada</option>
+        <option value="Distrito Capital de Bogotá">Distrito Capital de Bogotá</option>
+      </select>
+      <select name="pais" required>
+        <option value="CO">Colombia</option>
+      </select>
+      <div class="flex">
+        <select name="phone_code" required>
+          <option value="+57">+57</option>
+        </select>
+        <input type="tel" name="phone_number" placeholder="Número de celular" required>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="ocultar_facturacion" {% if ocultar_facturacion %}checked{% endif %}>
+        <label>Misma información de facturación</label>
+      </div>
+      {% if not ocultar_facturacion %}
+      <div id="informacionFacturacion">
+        <div class="flex">
+            <div>
+                <label for="nombre_facturacion">Nombre de facturación</label>
+                <input type="text" name="nombre_facturacion" placeholder="Nombre de facturación" required>
+            </div>
+            <div>
+                <label for="apellido_facturacion">Apellido de facturación</label>
+                <input type="text" name="apellido_facturacion" placeholder="Apellido de facturación" required>
+            </div>
+        </div>
+        <div>
+            <label for="direccion_facturacion">Dirección de facturación</label>
+            <input type="text" name="direccion_facturacion" placeholder="Dirección de facturación" required>
+        </div>
+        <div>
+            <label for="complemento_facturacion">Apt, casa o datos adicionales (facturación).</label>
+            <input type="text" name="complemento_facturacion" placeholder="Apt, casa o datos adicionales.">
+        </div>
+        <div class="flex">
+            <div>
+                <label for="codigo_postal_facturacion">Código postal (facturación)</label>
+                <input type="text" name="codigo_postal_facturacion" placeholder="Código postal" required>
+            </div>
+            <div>
+                <label for="ciudad_facturacion">Ciudad (facturación)</label>
+                <input type="text" name="ciudad_facturacion" placeholder="Ciudad" required>
+            </div>
+        </div>
+        <div>
+            <label for="departamento_facturacion">Departamento (facturación)</label>
+            <select id="departamento_facturacion" name="departamento_facturacion" required>
+                <option value="">Seleccione un departamento</option>
+                <option value="Amazonas">Amazonas</option>
+                <option value="Antioquia">Antioquia</option>
+                <option value="Distrito Capital de Bogotá">Distrito Capital de Bogotá</option>
+            </select>
+        </div>
+        <div>
+            <label for="pais_facturacion">País (facturación)</label>
+            <select id="pais_facturacion" name="pais_facturacion" required>
+                <option value="CO">Colombia</option>
+            </select>
+        </div>
+        <div class="flex">
+            <div>
+                <label for="codigo_area_facturacion">Código de área (facturación)</label>
+                <select id="codigo_area_facturacion" name="codigo_area_facturacion" required>
+                    <option value="+57">+57</option>
+                </select>
+            </div>
+            <div>
+                <label for="telefono_facturacion">Número de teléfono (facturación)</label>
+                <input type="tel" name="telefono_facturacion" placeholder="Número de teléfono" required>
+            </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <button type="submit">Confirmar y siguiente</button>
+    </form>
+
+    <script>
+      const checkboxOcultarFacturacion = document.querySelector('input[name="ocultar_facturacion"]');
+      const informacionFacturacion = document.getElementById('informacionFacturacion');
+
+      if (checkboxOcultarFacturacion && informacionFacturacion) {
+          checkboxOcultarFacturacion.addEventListener('change', function() {
+              informacionFacturacion.style.display = this.checked ? 'none' : 'block';
+          });
+
+          // Ocultar inicialmente si la variable 'ocultar_facturacion' es True al cargar la página.
+          if (checkboxOcultarFacturacion.checked) {
+              informacionFacturacion.style.display = 'none';
+          } else {
+              informacionFacturacion.style.display = 'block';
+          }
+      }
+    </script>
+  </div>
+</body>
+</html>

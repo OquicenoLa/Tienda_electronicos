@@ -26,6 +26,7 @@ from home import views as home_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('carro_compras.urls')),
+    path('carro_compras/', include('carro_compras.urls')),  # Rutas de la app 'carro_compras'
     path('pedidos/', include('l_pedidos.urls')),  # Rutas de la app 'l_pedidos'
     path('pagos/', include('pagos.urls')),  # Rutas de la app 'pagos'
     path('catalogo/', include('zcategoria.urls')),  # Rutas de la app 'pagos'
